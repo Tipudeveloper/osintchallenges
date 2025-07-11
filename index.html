@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OsintChallenges</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #111;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #222;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      display: block;
+    }
+    nav a:hover {
+      background-color: #444;
+    }
+    main {
+      padding: 40px;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0f0;
+      color: black;
+      font-weight: bold;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OSINT Challenges</h1>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showTab('home')">Home</a>
+    <a href="#" onclick="showTab('challenges')">Challenges</a>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h2>Welcome</h2>
+      <p>We create daily open source intelligence challenges ranging from easy to hard.</p>
+    </section>
+
+    <section id="challenges" class="hidden">
+      <h2>Challenge One - metadataone</h2>
+      <p>Find the metadata of the image.</p>
+      <p>Enter your answer below:</p>
+      <input type="text" id="answer" placeholder="Type your answer...">
+      <button onclick="checkAnswer()">Submit</button>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <script>
+    function showTab(id) {
+      document.getElementById("home").classList.add("hidden");
+      document.getElementById("challenges").classList.add("hidden");
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      const result = document.getElementById("result");
+
+      if (input === "thepasswrd") {
+        result.textContent = "Correct!";
+        result.style.color = "lime";
+      } else {
+        result.textContent = "Incorrect.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
+
